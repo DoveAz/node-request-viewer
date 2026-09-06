@@ -1,0 +1,65 @@
+{
+  "name": "node-request-viewer",
+  "version": "1.0.0",
+  "description": "A local, in-process Node.js network request viewer with a Reqable-style web panel.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-public.mjs",
+    "dev": "pnpm example",
+    "example": "pnpm build && node dist/example/app.js",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build && pnpm test"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "node",
+    "network",
+    "request",
+    "inspector",
+    "devtools",
+    "http",
+    "https",
+    "fetch",
+    "debugging"
+  ],
+  "author": "DoveAz",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DoveAz/node-request-viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DoveAz/node-request-viewer/issues"
+  },
+  "homepage": "https://github.com/DoveAz/node-request-viewer#readme",
+  "packageManager": "pnpm@9.15.9",
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "dependencies": {
+    "@mswjs/interceptors": "^0.42.3",
+    "ws": "^8.21.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "@types/ws": "^8.18.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
+  }
+}
